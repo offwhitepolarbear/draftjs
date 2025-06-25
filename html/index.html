@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <title>Snake Draft – Position-Colored Cards</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+
+<!-- 남은 선수 패널 -->
+<div class="col">
+    <h2>남은 선수</h2>
+
+    <div id="posTabs" class="tabs">
+        <button data-pos="ALL" class="active">ALL</button>
+        <button data-pos="PG">PG</button><button data-pos="SG">SG</button>
+        <button data-pos="SF">SF</button><button data-pos="PF">PF</button>
+        <button data-pos="C">C</button>
+    </div>
+
+    <input id="nameFilter" placeholder="이름 검색…" style="width:100%;padding:.4rem;margin-bottom:.5rem">
+    <div id="available"></div>
+</div>
+
+<!-- 지명 결과 패널 -->
+<div class="col">
+    <h2>지명 결과</h2>
+    <div id="drafted"></div>
+</div>
+
+<!-- 상태바 -->
+<span id="status">
+  <label style="font-size:.9rem;display:flex;align-items:center">
+    <input type="checkbox" id="blinkToggle" checked> 현재 팀 깜박임
+  </label>
+  <span id="statusText"></span>
+</span>
+
+<!-- 확인 모달 -->
+<div id="modal">
+    <div>
+        <p id="modal-msg">confirm?</p>
+        <button id="ok">확인</button>
+        <button id="cancel">취소</button>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/lz-string@1.4.4/libs/lz-string.min.js"></script>
+
+<script type="module" src="../js/script.js"></script>
+
+</body>
+</html>

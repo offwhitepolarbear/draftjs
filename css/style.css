@@ -1,0 +1,72 @@
+<style>
+
+        /* ── 레이아웃 ─────────────────────────────── */
+        *{box-sizing:border-box;font-family:system-ui,sans-serif}
+        body{margin:0;display:flex;gap:1rem;padding:1rem;height:100vh}
+        h2{margin:.5rem 0}
+        .col{flex:1 1 50%;overflow:auto;border:1px solid #ccc;border-radius:.5rem;padding:.5rem}
+
+        /* ── 포지션 탭 ───────────────────────────── */
+        .tabs{display:flex;gap:.25rem;margin-bottom:.5rem;flex-wrap:wrap}
+        .tabs button{flex:1 0 14%;padding:.35rem .2rem;border:1px solid #888;background:#f8f8f8;
+                     border-radius:.3rem;font-size:.8rem;cursor:pointer}
+        .tabs button.active{background:#3478ff;color:#fff;border-color:#3478ff}
+
+        /* ── 카드 & 포지션 색상 ──────────────────── */
+        .card{border:2px solid #888;border-radius:.5rem;padding:.4rem .5rem;margin:.25rem;
+              display:flex;align-items:center;gap:.4rem;cursor:pointer;position:relative}
+        .card.available:hover{background:#e8f0ff}
+        .card.picked{cursor:default}                 /* 테두리색은 포지션으로 통일 */
+
+        /* 포지션별 테두리 & 뱃지 색 */
+        .pos-PG{border-color:#16a085}
+        .pos-SG{border-color:#e67e22}
+        .pos-SF{border-color:#8e44ad}
+        .pos-PF{border-color:#27ae60}
+        .pos-C {border-color:#c0392b}
+
+        /* 라운드/픽 뱃지 */
+        .badge{display:inline-block;color:#fff;border-radius:.25rem;font-size:.72rem;
+               padding:0 .37rem;min-width:3.4rem;text-align:center}
+
+        /* 카드 하단 (시간) */
+        .time{font-size:.7rem;color:#666}
+
+        /* ── 서브포지션 뱃지 (포지션 색 공유) ─────── */
+        .subpos{margin-top:.25rem}
+        .subpos-badge{display:inline-block;font-size:.65rem;font-weight:600;
+                      color:#fff;padding:0 .33rem;border-radius:.25rem;margin-right:.25rem}
+        .subpos-PG{background:#16a085}
+        .subpos-SG{background:#e67e22}
+        .subpos-SF{background:#8e44ad}
+        .subpos-PF{background:#27ae60}
+        .subpos-C {background:#c0392b}
+
+        /* ── 팀 리스트 ───────────────────────────── */
+        .team{margin-bottom:.8rem;border-bottom:1px solid #ddd;padding-bottom:.25rem}
+        .team.current{border-left:4px solid #ff9800;background:#fff8e1}
+        @keyframes blink {50%{opacity:.3}}
+        body.blink-active .team.current.blink{animation:blink 1s linear infinite}
+        .team>h3{margin:.25rem 0 .4rem;font-size:1rem;display:flex;justify-content:space-between}
+
+        /* ── 상태바 & 깜박임 토글 ─────────────────── */
+        #status{position:fixed;bottom:.5rem;left:50%;transform:translateX(-50%);
+                background:#000;color:#fff;padding:.5rem 1rem;border-radius:.5rem;
+                font-size:1.05rem;z-index:11;display:flex;gap:1rem;align-items:center}
+        #blinkToggle{margin-right:.25rem;cursor:pointer}
+
+        /* ── 모달 ──────────────────────────────── */
+        #modal{position:fixed;inset:0;background:rgba(0,0,0,.4);
+               display:none;align-items:center;justify-content:center;z-index:10}
+        #modal>div{background:#fff;padding:1rem 1.5rem;border-radius:.5rem;max-width:280px;text-align:center}
+        #modal button{margin:.5rem .25rem;padding:.45rem 1.3rem;border:none;border-radius:.25rem;
+                      font-size:.9rem;cursor:pointer}
+        #ok{background:#3478ff;color:#fff}
+        #cancel{background:#ddd}
+
+        /* ── 툴팁 ──────────────────────────────── */
+        .tooltip{position:absolute;top:100%;left:0;margin-top:.2rem;z-index:5;
+                 background:#333;color:#fff;padding:.45rem .6rem;font-size:.72rem;
+                 border-radius:.3rem;white-space:nowrap;display:none}
+        .card:hover .tooltip{display:block}
+    </style>
